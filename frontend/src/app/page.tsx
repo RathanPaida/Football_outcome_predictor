@@ -194,11 +194,22 @@ export default function Home() {
                 .away-bar-width { width: ${result.away_win_prob}%; }
               `}</style>
 
-              <h3 className="text-center text-2xl font-bold text-white mb-8 flex items-center justify-center gap-4">
-                <span className="text-teal-400 drop-shadow-md">{result.home_team}</span>
-                <span className="text-slate-400 font-medium text-sm border border-slate-600 rounded-full px-3 py-1 bg-slate-800/50">VS</span>
-                <span className="text-orange-400 drop-shadow-md">{result.away_team}</span>
-              </h3>
+              <div className="text-center mb-10">
+                <div className="flex items-center justify-center gap-4 md:gap-8 w-full max-w-lg mx-auto">
+                  <span className="text-teal-400 drop-shadow-md flex-1 text-right text-xl md:text-2xl font-bold truncate" title={result.home_team}>{result.home_team}</span>
+                  
+                  <div className="flex flex-col items-center justify-center shrink-0">
+                    <div className="flex items-center gap-4 text-4xl md:text-5xl font-black bg-white/10 px-6 py-3 rounded-2xl border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                      <span className="text-teal-300 drop-shadow-lg">{result.predicted_home_score}</span>
+                      <span className="text-slate-600 text-3xl font-light">-</span>
+                      <span className="text-orange-300 drop-shadow-lg">{result.predicted_away_score}</span>
+                    </div>
+                    <span className="text-slate-400 font-semibold text-[10px] tracking-[0.2em] uppercase mt-3">Predicted Score</span>
+                  </div>
+                  
+                  <span className="text-orange-400 drop-shadow-md flex-1 text-left text-xl md:text-2xl font-bold truncate" title={result.away_team}>{result.away_team}</span>
+                </div>
+              </div>
               
               <div className="space-y-4">
                 <div className="group relative overflow-hidden bg-white/5 border border-white/10 rounded-2xl p-5 flex justify-between items-center shadow-lg hover:border-teal-400/50 transition-colors">
